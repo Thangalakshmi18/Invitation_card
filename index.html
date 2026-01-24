@@ -3,94 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wedding Invitation</title>
-   <!-- Romantic cursive font -->
+  <title>Forever Begins</title>
+
+  <!-- Romantic cursive font -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="theme-color" content="#f8e1e7" />
+
+  <style>
+    /* Page background */
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #0a1a4f; /* Royal blue */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* 9:16 Mobile Frame */
+    .mobile-frame {
+      width: 360px;
+      height: 640px; /* 9:16 ratio */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    /* Main quote */
+    .romantic-text {
+      font-size: 1.9rem;
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* Heart button */
+    .heart-button {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: none;
+      background: #d4af37; /* soft gold */
+      color: #0a1a4f;
+      font-size: 4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 1);
+    }
+
+    /* Blessing text */
+    .blessing-text {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #f5e6b8;
+    }
+
+    /* Transition overlay */
+    #transition-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: #0a1a4f;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease-in-out;
+      z-index: 999;
+    }
+
+    #transition-overlay.active {
+      opacity: 1;
+    }
+  </style>
 </head>
 
 <body>
- <!-- STARS CONTAINER -->
-  <div class="stars"></div>
-  
-  <!-- SEGMENT 1 (UNCHANGED BG & THEME) -->
-  <section class="segment segment1">
-    <div class="segment-content">
-      <h1 class="stylized-title"></h1>
 
-      <!-- MODIFIED: names only -->
-      <p class="stylized-subtitle">
-        Ranjithkannan<br>
-        <span class="amp">&</span><br>
-        Thangalakshmi
-      </p>
-    </div>
-  </section>
+  <div class="mobile-frame">
+    <p class="romantic-text">
+      With hearts full of love and dreams,<br>
+      we invite you to witness the beginning<br>
+      of our forever.
+    </p>
 
-  <!-- SEGMENT 2 -->
-<section class="segment segment2">
-  <div class="segment-content">
-    <blockquote class="quote">
-      <span>Two souls, one heart,</span>
-      <span>a lifetime of love.</span>
-    </blockquote>
+    <button class="heart-button" id="heart-button">♥</button>
+
+    <p class="blessing-text">
+      Please press here to bless<br>
+      our forever
+    </p>
   </div>
-</section>
 
-  <!-- SEGMENT 3 -->
-  <section class="segment segment3">
-    <div class="mandala-wrapper">
-  <div class="mandala-ring"></div>
-    </div>
-    
+  <div id="transition-overlay"></div>
 
-    <div class="segment-content wedding-details">
+  <script>
+    const heart = document.getElementById('heart-button');
+    const overlay = document.getElementById('transition-overlay');
 
-      <h2 class="section-title">Marriage</h2>
-      <p>
-        <strong>Date:</strong> 15/03/2026<br>
-        <strong>Time:</strong> 10:00 AM to 12:00 PM<br>
-        <strong>Venue:</strong><br>
-        MAVMM Mahal,<br>
-        Puttuthoppu Main Road,<br>
-        Ponnagaram, Madurai – 16
-      </p>
+    heart.addEventListener('click', () => {
+      heart.style.transform = 'scale(1.4)';
+      overlay.classList.add('active');
 
-      <br>
-
-      <h2 class="section-title">Reception</h2>
-      <p>
-        <strong>Date:</strong> 14/03/2026<br>
-        <strong>Time:</strong> 7:00 PM<br>
-        <strong>Venue:</strong><br>
-        MAVMM Mahal,<br>
-        Puttuthoppu Cross Road,<br>
-        Ponnagaram, Madurai – 16
-      </p>
-
-      <a class="rsvp-link" href="https://www.google.com/maps/place/PUTTUTHOPPU+MAVMM+THIRUMANA+MALIGAI/@9.9315429,78.1084652,17z/data=!4m14!1m7!3m6!1s0x3b00c5f2e0af19b5:0x6f17d561dd1ef9a5!2sPUTTUTHOPPU+MAVMM+THIRUMANA+MALIGAI!8m2!3d9.9315429!4d78.1110401!16s%2Fg%2F11sb3fvbqk!3m5!1s0x3b00c5f2e0af19b5:0x6f17d561dd1ef9a5!8m2!3d9.9315429!4d78.1110401!16s%2Fg%2F11sb3fvbqk?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-        📍 View Location Map
-      </a>
-      <div class="welcome-message-box">
-  <p class="welcome-message">
-    With folded hands and hearts full of joy,
-    we warmly welcome you to bless our union
-    with your presence, love, and prayers.
-  </p>
-
-  <p class="welcome-sign">
-    — Ranjithkannan & Thangalakshmi
-  </p>
-</div>
-
-
-    </div>
-  </section>
-
-  <script src="script.js"></script>
-  <script src="animation.js"></script>
-
+      setTimeout(() => {
+        window.location.href = '../wedding_landing.html';
+      }, 1000);
+    });
+  </script>
 
 </body>
 </html>
