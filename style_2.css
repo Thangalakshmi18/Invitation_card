@@ -1,0 +1,24 @@
+/* style.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4169E1; /* Royal blue */
+}
+
+/* Frame-style container */
+.page-frame {
+  width: 90vw;
+  max-width: 800px;
+  height: auto;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fff; /* Optional ivory frame */
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
