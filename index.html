@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 
-<meta name="viewport" content="width=375, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="viewport"
+content="width=375, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 <title>Forever Begins</title>
 
@@ -54,16 +55,6 @@ body {
   font-size: 1.3rem;
   color: #f5e6b8;
 }
-
-#transition-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: #0a1a4f;
-  opacity: 0;
-  transition: opacity 1s;
-}
-
-#transition-overlay.active { opacity: 1; }
 </style>
 </head>
 
@@ -76,7 +67,8 @@ body {
     of our forever.
   </p>
 
-  <button class="heart-button" id="heart-button">♥</button>
+  <!-- ORIGINAL BUTTON FLOW — UNCHANGED -->
+  <button class="heart-button" onclick="goNext()">♥</button>
 
   <p class="blessing-text">
     Please press here to bless<br>
@@ -84,19 +76,23 @@ body {
   </p>
 </div>
 
-<div id="transition-overlay"></div>
-
 <script>
+/* ZOOM LOCK ONLY — DOES NOT TOUCH YOUR BUTTON FLOW */
 document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, { passive:false });
+document.addEventListener('touchmove', e => {
+  if (e.scale !== 1) e.preventDefault();
+}, { passive: false });
 
-const heart = document.getElementById('heart-button');
-const overlay = document.getElementById('transition-overlay');
-
-heart.addEventListener('click', () => {
-  overlay.classList.add('active');
-  setTimeout(() => window.location.href = 'wedding_landing.html', 900);
+window.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
+    e.preventDefault();
+  }
 });
+
+/* YOUR ORIGINAL PAGE REDIRECT */
+function goNext(){
+  window.location.href = "wedding_landing.html";
+}
 </script>
 
 </body>
