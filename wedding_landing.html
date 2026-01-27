@@ -5,32 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 <title>Wedding Invitation</title>
 
+<!-- Romantic cursive font -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="page">
+<div class="scroll-container">
 
-  <!-- FIRST IMAGE (BACKGROUND) -->
-  <div class="parallax-bg" id="bg1">
-    <img src="assets/Seg_1.jpg" alt="Couple" />
-  </div>
+  <!-- PAGE 1 -->
+  <section class="segment">
+    <img src="assets/Seg_1.jpg" class="poster">
+    <div class="overlay">
+      <p class="stylized-subtitle">
+        Ranjithkannan<br>
+        <span class="amp">&</span><br>
+        Thangalakshmi
+      </p>
+    </div>
+  </section>
 
-  <!-- SECOND IMAGE (MIDDLE LAYER) -->
-  <div class="parallax-bg" id="bg2">
-    <img src="assets/2ndpg.JPG" alt="Quote" />
+  <!-- PAGE 2 -->
+  <section class="segment">
+    <img src="assets/2ndpg.JPG" class="poster">
     <div class="overlay">
       <blockquote class="quote">
         Two souls, one heart,<br>
         a lifetime of love.
       </blockquote>
     </div>
-  </div>
+  </section>
 
-  <!-- FINAL IMAGE (FOREGROUND LAYER) -->
-  <div class="parallax-bg" id="bg3">
-    <img src="assets/dp.JPG" alt="Final">
+  <!-- PAGE 3 -->
+  <section class="segment">
+    <img src="assets/dp.JPG" class="poster">
     <div class="overlay final-overlay">
       <div class="final-card">
 
@@ -54,34 +63,29 @@
 
       </div>
     </div>
-  </div>
+  </section>
 
 </div>
 
 <script>
-/* SAFE ZOOM LOCK */
+/* SAFE ZOOM LOCK (SCROLL FRIENDLY) */
 document.addEventListener('gesturestart', e => e.preventDefault());
+
 document.addEventListener('touchmove', e => {
   if (e.touches.length > 1) e.preventDefault();
 }, { passive:false });
+
 window.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
     e.preventDefault();
   }
 });
-
-/* MULTI-LAYER PARALLAX */
-const layers = [
-  {el: document.getElementById('bg1'), speed: 0.2},
-  {el: document.getElementById('bg2'), speed: 0.4},
-  {el: document.getElementById('bg3'), speed: 0.6}
-];
-
+/* SIMPLE PARALLAX */
+const parallaxBg = document.getElementById('parallax-bg');
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
-  layers.forEach(layer => {
-    layer.el.style.transform = `translateY(${scrolled * layer.speed}px)`;
-  });
+  parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`; 
+  // 0.5 = speed factor, lower = slower movement
 });
 </script>
 
