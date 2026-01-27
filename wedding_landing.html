@@ -1,95 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-<title>Wedding Invitation</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="page">
 
-  <!-- FIRST IMAGE (BACKGROUND) -->
-  <div class="parallax-bg" id="bg1">
-    <img src="assets/Seg_1.jpg" alt="Couple" />
-    <section class="segment segment1">
-  <div class="name">
-    <blockquote class="couple_name">
-      Ranjithkannan<br>
-      & Thangalakshmi
-    </blockquote>
-  </div>
-</section>
-  <!-- SECOND IMAGE (MIDDLE LAYER) -->
- <div class="parallax-bg" id="bg2">
-  <img src="assets/2ndimg_new.JPG" alt="Quote" />
-  <section class="segment segment2">
-    <div class="segment2_overlay">
-      <blockquote class="quote">
-        Two souls, one heart,<br>
-        a lifetime of love.
-      </blockquote>
+  <div class="parallax-bg">
+    <img src="assets/Seg_1.jpg" alt="Couple">
+    <div class="overlay-fixed">
+        <div class="name-container">
+            <h1 class="couple_name">
+              Ranjithkannan<br>& Thangalakshmi
+            </h1>
+        </div>
     </div>
-  </section>
-</div>
-
-
-  <!-- FINAL IMAGE (FOREGROUND LAYER) -->
-  <div class="parallax-bg" id="bg3">
-  <img src="assets/dp.JPG" alt="Final">
-
-<div class="final-overlay">
-
-  <div class="event-top">
-
-    <p class="event-text">
-      <span class="event-title">Marriage</span><br>
-      15/03/2026 — 10:00 AM<br>
-      MAVMM Mahal, Puttuthoppu, Madurai
-    </p>
-
-    <p class="event-text">
-      <span class="event-title">Reception</span><br>
-      14/03/2026 — 7:00 PM<br>
-      MAVMM Mahal, Puttuthoppu, Madurai
-    </p>
-
   </div>
 
-  <p class="welcome-text">
-    With folded hands and hearts full of joy,<br>
-    we warmly invite you to celebrate<br>
-    our beautiful union.
-  </p>
+  <div class="parallax-bg">
+    <img src="assets/2ndimg_new.JPG" alt="Quote">
+    <div class="overlay-fixed">
+        <blockquote class="quote">
+          Two souls, one heart,<br>a lifetime of love.
+        </blockquote>
+    </div>
+  </div>
 
-  <a href="https://maps.app.goo.gl/FB3UQCQRLd5rTYEq9" target="_blank" class="map-btn">
-    📍 View Location Map
-  </a>
+  <div class="parallax-bg">
+    <img src="assets/dp.JPG" alt="Final">
+    <div class="overlay-fixed final-overlay">
+      
+      <div class="event-details">
+        <p class="event-text">
+          <span class="event-title">Marriage</span><br>
+          15/03/2026 — 10:00 AM<br>
+          MAVMM Mahal, Madurai
+        </p>
+
+        <p class="event-text">
+          <span class="event-title">Reception</span><br>
+          14/03/2026 — 7:00 PM<br>
+          MAVMM Mahal, Madurai
+        </p>
+      </div>
+
+      <p class="welcome-text">
+        With folded hands and hearts full of joy,<br>
+        we warmly invite you to celebrate<br>
+        our beautiful union.
+      </p>
+
+      <a href="https://maps.google.com" target="_blank" class="map-btn">
+        📍 View Location Map
+      </a>
+      
+    </div>
+  </div>
 
 </div>
-
-</div>
-
-
-</div>
-
-<script>
-/* SAFE ZOOM LOCK */
-document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('touchmove', e => {
-  if (e.touches.length > 1) e.preventDefault();
-}, { passive:false });
-window.addEventListener('keydown', e => {
-  if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
-    e.preventDefault();
-  }
-});
-
-
-</script>
 
 </body>
 </html>
