@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=375, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=375, height=812, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
 <title>Wedding Invitation</title>
 
@@ -10,61 +12,66 @@
 <link rel="stylesheet" href="styles.css">
 
 </head>
-
 <body>
 
-<div class="stars"></div>
+<div class="scroll-container">
 
-<section class="segment segment1">
-  <div class="segment-content">
-    <p class="stylized-subtitle">
-      Ranjithkannan<br>
-      <span class="amp">&</span><br>
-      Thangalakshmi
-    </p>
-  </div>
-</section>
-
-<section class="segment segment2">
-  <div class="segment-content">
-    <blockquote class="quote">
-      <span>Two souls, one heart,</span>
-      <span>a lifetime of love.</span>
-    </blockquote>
-  </div>
-</section>
-
-<!-- LAST SEGMENT -->
-<section class="segment segment3 final-segment">
-
-  <div class="segment-content wedding-details no-border">
-
-    <h2 class="section-title marriage-text">Marriage</h2>
-    <p class="marriage-text">
-      15/03/2026 — 10:00 AM to 12:00 PM<br>
-      MAVMM Mahal, Madurai
-    </p>
-
-    <h2 class="section-title reception-text">Reception</h2>
-    <p class="reception-text">
-      14/03/2026 — 7:00 PM<br>
-      MAVMM Mahal, Madurai
-    </p>
-
-    <div class="welcome-message-box auto-contrast">
-      With folded hands and hearts full of joy,
-      we warmly welcome you to bless our union.
+  <section class="segment segment1">
+    <div class="segment-content">
+      <p class="stylized-subtitle">
+        Ranjithkannan<br>
+        <span class="amp">&</span><br>
+        Thangalakshmi
+      </p>
     </div>
+  </section>
 
-  </div>
-</section>
+  <section class="segment segment2">
+    <div class="segment-content">
+      <blockquote class="quote">
+        Two souls, one heart,<br>
+        a lifetime of love.
+      </blockquote>
+    </div>
+  </section>
 
-<script src="script.js"></script>
-<script src="animation.js"></script>
+  <section class="segment segment3 final-segment">
+    <div class="segment-content no-border">
+
+      <h2 class="marriage-text">Marriage</h2>
+      <p class="marriage-text">
+        15/03/2026 — 10:00 AM<br>
+        MAVMM Mahal, Madurai
+      </p>
+
+      <h2 class="reception-text">Reception</h2>
+      <p class="reception-text">
+        14/03/2026 — 7:00 PM<br>
+        MAVMM Mahal, Madurai
+      </p>
+
+      <div class="auto-contrast">
+        With folded hands and hearts full of joy,<br>
+        we warmly welcome you.
+      </div>
+
+    </div>
+  </section>
+
+</div>
 
 <script>
+/* ZOOM LOCK */
 document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, { passive:false });
+document.addEventListener('touchmove', e => {
+  if (e.scale !== 1) e.preventDefault();
+}, { passive:false });
+
+window.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
+    e.preventDefault();
+  }
+});
 </script>
 
 </body>
