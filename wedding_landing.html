@@ -70,19 +70,7 @@ window.addEventListener('keydown', e => {
   }
 });
 
-/* MULTI-LAYER PARALLAX */
-const layers = [
-  {el: document.getElementById('bg1'), speed: 0.2},
-  {el: document.getElementById('bg2'), speed: 0.4},
-  {el: document.getElementById('bg3'), speed: 0.6}
-];
 
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  layers.forEach(layer => {
-    layer.el.style.transform = `translateY(${scrolled * layer.speed}px)`;
-  });
-});
 </script>
 
 </body>
