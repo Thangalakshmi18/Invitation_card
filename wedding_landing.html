@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 <title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
@@ -17,15 +17,9 @@
     <img src="assets/Seg_1.jpg" alt="Couple" />
   </div>
 
-  <!-- DANCING ROPE -->
-  <div class="rope-message" id="ropeMessage">
-    <span>🎀 Pull the rope to reveal the love story 🎀</span>
-    <div class="rope"></div>
-  </div>
-
   <!-- SECOND IMAGE (MIDDLE LAYER) -->
   <div class="parallax-bg" id="bg2">
-    <img src="assets/2ndpg.JPG" alt="Middle Image" />
+    <img src="assets/2ndpg.JPG" alt="Quote" />
     <div class="overlay">
       <blockquote class="quote">
         Two souls, one heart,<br>
@@ -34,11 +28,12 @@
     </div>
   </div>
 
-  <!-- THIRD IMAGE (FINAL LAYER) -->
+  <!-- FINAL IMAGE (FOREGROUND LAYER) -->
   <div class="parallax-bg" id="bg3">
-    <img src="assets/dp.JPG" alt="Final Image" />
+    <img src="assets/dp.JPG" alt="Final">
     <div class="overlay final-overlay">
       <div class="final-card">
+
         <h2 class="marriage-text">Marriage</h2>
         <p class="marriage-text">
           15/03/2026 — 10:00 AM<br>
@@ -56,6 +51,7 @@
           we warmly welcome you.<br>
           <a href="https://www.google.com" target="_blank" class="google-link">Visit Google</a>
         </div>
+
       </div>
     </div>
   </div>
@@ -74,34 +70,20 @@ window.addEventListener('keydown', e => {
   }
 });
 
-/* CINEMATIC MULTI-LAYER SCROLL LOGIC */
+/* MULTI-LAYER PARALLAX */
 const layers = [
   {el: document.getElementById('bg1'), speed: 0.2},
   {el: document.getElementById('bg2'), speed: 0.4},
   {el: document.getElementById('bg3'), speed: 0.6}
 ];
 
-const ropeMessage = document.getElementById('ropeMessage');
-let stage = 0; // 0 = first page, 1 = second page, 2 = third page
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  layers.forEach(layer => {
+    layer.el.style.transform = `translateY(${scrolled * layer.speed}px)`;
+  });
+});
+</script>
 
-window.addEventListener('wheel', (e) => {
-  const delta = e.deltaY;
-
-  if(delta > 0){ // scroll down
-    if(stage === 0){
-      layers[1].el.style.transform = `translateY(0px)`; // show second image
-      ropeMessage.style.opacity = 0;
-      stage = 1;
-    } else if(stage === 1){
-      layers[2].el.style.transform = `translateY(0px)`; // show third image
-      stage = 2;
-    }
-  } else { // scroll up
-    if(stage === 2){
-      layers[2].el.style.transform = `translateY(100vh)`; // hide third
-      stage = 1;
-    } else if(stage === 1){
-      layers[1].el.style.transform = `translateY(100vh)`; // hide second
-      ropeMessage.style.opacity = 1;
-      stage = 0;
-    }
+</body>
+</html>
