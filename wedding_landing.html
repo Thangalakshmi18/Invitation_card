@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
@@ -12,9 +12,14 @@
 
 <div class="page">
 
-  <!-- FIRST IMAGE (BACKGROUND) -->
+  <!-- FIRST IMAGE (PARALLAX BACKGROUND) -->
   <div class="parallax-bg" id="bg1">
     <img src="assets/Seg_1.jpg" alt="Couple" />
+  </div>
+
+  <!-- PULL MESSAGE -->
+  <div class="pull-message" id="pullMessage">
+    <span>🎀 Pull the rope to reveal the love story 🎀</span>
   </div>
 
   <!-- SECOND IMAGE (MIDDLE LAYER) -->
@@ -28,9 +33,9 @@
     </div>
   </div>
 
-  <!-- FINAL IMAGE (FOREGROUND LAYER) -->
+  <!-- THIRD IMAGE (FINAL LAYER) -->
   <div class="parallax-bg" id="bg3">
-    <img src="assets/dp.JPG" alt="Final">
+    <img src="assets/dp.JPG" alt="Final Image">
     <div class="overlay final-overlay">
       <div class="final-card">
 
@@ -77,11 +82,24 @@ const layers = [
   {el: document.getElementById('bg3'), speed: 0.6}
 ];
 
+const pullMessage = document.getElementById('pullMessage');
+
 window.addEventListener('scroll', () => {
   const scrolled = window.pageYOffset;
+
+  // Parallax layers
   layers.forEach(layer => {
     layer.el.style.transform = `translateY(${scrolled * layer.speed}px)`;
   });
+
+  // Show message before second layer fully scrolls
+  if(scrolled < 200){
+    pullMessage.style.opacity = 1;
+    pullMessage.style.transform = `translateY(0px)`;
+  } else {
+    pullMessage.style.opacity = 0;
+    pullMessage.style.transform = `translateY(-50px)`;
+  }
 });
 </script>
 
