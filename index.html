@@ -1,98 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-
-<meta name="viewport"
-content="width=375, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-
-<title>Forever Begins</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<title>Wedding Invitation</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background-color: #0a1a4f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Dancing Script', cursive;
-}
-
-.mobile-frame {
-  width: 360px;
-  height: 640px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-}
-
-.romantic-text {
-  font-size: 1.9rem;
-  color: #ffffff;
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-
-.heart-button {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: none;
-  background: #d4af37;
-  font-size: 4rem;
-  cursor: pointer;
-  box-shadow: 0 0 25px rgba(212,175,55,0.8);
-}
-
-.blessing-text {
-  margin-top: 20px;
-  font-size: 1.3rem;
-  color: #f5e6b8;
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<div class="mobile-frame">
-  <p class="romantic-text">
-    With hearts full of love and dreams,<br>
-    we invite you to witness the beginning<br>
-    of our forever.
-  </p>
+<div class="page">
 
-  <!-- ORIGINAL BUTTON FLOW — UNCHANGED -->
-  <button class="heart-button" onclick="goNext()">♥</button>
+  <!-- FIRST IMAGE (FIXED BACKGROUND) -->
+  <div class="fixed-bg">
+    <img src="assets/Seg_1.jpg" alt="Couple" />
+  </div>
 
-  <p class="blessing-text">
-    Please press here to bless<br>
-    our forever
-  </p>
+  <!-- CONTENT OVER THE FIRST IMAGE -->
+  <div class="content">
+
+    <!-- SECOND IMAGE -->
+    <section class="section">
+      <img src="assets/2ndpg.JPG" class="section-img">
+      <div class="overlay">
+        <blockquote class="quote">
+          Two souls, one heart,<br>
+          a lifetime of love.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- FINAL SECTION -->
+    <section class="section">
+      <img src="assets/3rdpg.jpg" class="section-img">
+      <div class="overlay final-overlay">
+        <div class="final-card">
+
+          <h2 class="marriage-text">Marriage</h2>
+          <p class="marriage-text">
+            15/03/2026 — 10:00 AM<br>
+            MAVMM Mahal, Madurai
+          </p>
+
+          <h2 class="reception-text">Reception</h2>
+          <p class="reception-text">
+            14/03/2026 — 7:00 PM<br>
+            MAVMM Mahal, Madurai
+          </p>
+
+          <div class="auto-contrast">
+            With folded hands and hearts full of joy,<br>
+            we warmly welcome you.<br>
+            <a href="https://www.google.com" target="_blank" class="google-link">Visit Google</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
 </div>
 
 <script>
-/* ZOOM LOCK ONLY — DOES NOT TOUCH YOUR BUTTON FLOW */
+/* SAFE ZOOM LOCK */
 document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('touchmove', e => {
-  if (e.scale !== 1) e.preventDefault();
-}, { passive: false });
-
-window.addEventListener('keydown', function(e) {
+  if (e.touches.length > 1) e.preventDefault();
+}, { passive:false });
+window.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
     e.preventDefault();
   }
 });
-
-/* YOUR ORIGINAL PAGE REDIRECT */
-function goNext(){
-  window.location.href = "wedding_landing.html";
-}
 </script>
 
 </body>
