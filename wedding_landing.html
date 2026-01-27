@@ -61,12 +61,16 @@ content="width=375, height=812, initial-scale=1, maximum-scale=1, minimum-scale=
 </div>
 
 <script>
-/* ZOOM LOCK */
+/* Prevent pinch zoom ONLY */
 document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('touchmove', e => {
-  if (e.scale !== 1) e.preventDefault();
-}, { passive:false });
 
+document.addEventListener('touchmove', e => {
+  if (e.touches.length > 1) {
+    e.preventDefault();   // only block pinch zoom
+  }
+}, { passive: false });
+
+/* Prevent keyboard zoom */
 window.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && ['+','-','0'].includes(e.key)) {
     e.preventDefault();
