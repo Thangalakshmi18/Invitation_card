@@ -1,125 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=375, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="UTF-8" />
 
-  <title>Forever Begins</title>
+<meta name="viewport" content="width=375, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
 
-  <!-- Romantic cursive font -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<title>Forever Begins</title>
 
-  <style>
-    /* Page background */
-    body {
-      margin: 0;
-      height: 100vh;
-      background-color: #0a1a4f; /* Royal blue */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Dancing Script', cursive;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
-    /* 9:16 Mobile Frame */
-    .mobile-frame {
-      width: 360px;
-      height: 640px; /* 9:16 ratio */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      box-sizing: border-box;
-    }
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #0a1a4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dancing Script', cursive;
+}
 
-    /* Main quote */
-    .romantic-text {
-      font-size: 1.9rem;
-      color: #ffffff;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
+.mobile-frame {
+  width: 360px;
+  height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
 
-    /* Heart button */
-    .heart-button {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: none;
-      background: #d4af37; /* soft gold */
-      color: #0a1a4f;
-      font-size: 4rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
+.romantic-text {
+  font-size: 1.9rem;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
 
-    .heart-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 40px rgba(212, 175, 55, 1);
-    }
+.heart-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: #d4af37;
+  font-size: 4rem;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(212,175,55,0.8);
+}
 
-    /* Blessing text */
-    .blessing-text {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #f5e6b8;
-    }
+.blessing-text {
+  margin-top: 20px;
+  font-size: 1.3rem;
+  color: #f5e6b8;
+}
 
-    /* Transition overlay */
-    #transition-overlay {
-      position: fixed;
-      inset: 0;
-      background-color: #0a1a4f;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease-in-out;
-      z-index: 999;
-    }
+#transition-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #0a1a4f;
+  opacity: 0;
+  transition: opacity 1s;
+}
 
-    #transition-overlay.active {
-      opacity: 1;
-    }
-  </style>
+#transition-overlay.active { opacity: 1; }
+</style>
 </head>
 
 <body>
 
-  <div class="mobile-frame">
-    <p class="romantic-text">
-      With hearts full of love and dreams,<br>
-      we invite you to witness the beginning<br>
-      of our forever.
-    </p>
+<div class="mobile-frame">
+  <p class="romantic-text">
+    With hearts full of love and dreams,<br>
+    we invite you to witness the beginning<br>
+    of our forever.
+  </p>
 
-    <button class="heart-button" id="heart-button">♥</button>
+  <button class="heart-button" id="heart-button">♥</button>
 
-    <p class="blessing-text">
-      Please press here to bless<br>
-      our forever
-    </p>
-  </div>
+  <p class="blessing-text">
+    Please press here to bless<br>
+    our forever
+  </p>
+</div>
 
-  <div id="transition-overlay"></div>
+<div id="transition-overlay"></div>
 
-  <script>
-    const heart = document.getElementById('heart-button');
-    const overlay = document.getElementById('transition-overlay');
+<script>
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('touchmove', e => { if (e.scale !== 1) e.preventDefault(); }, { passive:false });
 
-    heart.addEventListener('click', () => {
-      heart.style.transform = 'scale(1.4)';
-      overlay.classList.add('active');
+const heart = document.getElementById('heart-button');
+const overlay = document.getElementById('transition-overlay');
 
-      setTimeout(() => {
-        window.location.href = '../wedding_landing.html';
-      }, 1000);
-    });
-  </script>
+heart.addEventListener('click', () => {
+  overlay.classList.add('active');
+  setTimeout(() => window.location.href = 'wedding_landing.html', 900);
+});
+</script>
 
 </body>
 </html>
